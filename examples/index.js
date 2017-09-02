@@ -15,6 +15,14 @@ const rootRoute = {
 				}, 'Index');
 			}
 		},
+		{
+			path: 'test',
+			getComponent(location, cb) {
+				require.ensure([], (require) => {
+					cb(null, require('./pages/test'));
+				}, 'test');
+			}
+		},
 	],
 	indexRoute: {
 		getComponent(location, cb) {

@@ -1,3 +1,22 @@
-body{
-	color:#09f;
+@import '../styles/core/index';
+
+.header{
+	width:100%;
+	height:r(50);
+	background:#000;
+	color:#fff;
+	text-align: center;
+	line-height:r(50);
+	font-size:r(24);
+	position:fixed;
+	top:0;
+	left:0;
+}
+.app-container{
+	width:100%;
+	position:relative;
+	min-width:320px;
+	min-height:100%;
+	margin-top:r(50);
+	overflow: hidden;
 }
