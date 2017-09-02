@@ -31,6 +31,71 @@ module.exports = {
 					},
 				],
 			},
+			{
+				test: /\.css$/,
+				use: ExtractTextPlugin.extract({
+					use: [
+						{
+							loader: 'css-loader?importLoaders=1',
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: [
+									require('autoprefixer')({
+										browsers: ['ios >= 7.0'],
+									}),
+								],
+							},
+						},
+					],
+				}),
+			},
+			{
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					use: [
+						{
+							loader: 'css-loader?importLoaders=1',
+						},
+						{
+							loader: 'postcss-loader',
+							options: {
+								plugins: [
+									require('autoprefixer')({
+										browsers: ['ios >= 7.0'],
+									}),
+								],
+							},
+						},
+						{
+							loader: 'sass-loader',
+							options: {
+								sourceMap: true,
+								outputStyle: 'compact',
+							},
+						},
+					],
+				}),
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'url-loader?limit=8192&name=images/[name].[hash:8].[ext]',
+					},
+				],
+			},
+			{
+				test: /\.(woff|woff2|ttf|eot|svg)$/,
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'file-loader?name=fonts/[name].[hash:8].[ext]',
+					},
+				],
+			},
 		]
 	},
 	resolve: {
@@ -46,6 +111,11 @@ module.exports = {
 			template: `./examples/index.html`,
 			filename: `index.html`,
 			chunks: ['vendors', 'index'],
+		}),
+		new ExtractTextPlugin({
+			filename: 'stylesheet/[name].css',
+			disable: false,
+			allChunks: true,
 		})
 	],
 }

@@ -1,5 +1,7 @@
 import React ,{Component,PropTypes} from 'react'
 
+import '../../styles/index'
+import './app.scss'
 class App extends Component{
 	
 	render(){
