@@ -1,11 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-	devtool:'cheap-module-eval-source-map',
 	entry:{
-		index:path.resolve(__dirname,'./examples/index.js')
+		index:path.resolve(__dirname,'./examples/index.js'),
+		vendor:['react']
 	},
 	output:{
 		path:path.resolve(__dirname,'assets'),
@@ -101,17 +101,7 @@ module.exports = {
 	resolve: {
 		extensions: [' ', '.js', '.jsx', '.scss'],
 	},
-	devServer: {
-		contentBase: "./assets",//本地服务器所加载的页面所在的目录
-		historyApiFallback: true,//不跳转
-		inline: true//实时刷新
-	},
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: `./examples/index.html`,
-			filename: `index.html`,
-			chunks: ['vendors', 'index'],
-		}),
 		new ExtractTextPlugin({
 			filename: 'stylesheet/[name].css',
 			disable: false,
