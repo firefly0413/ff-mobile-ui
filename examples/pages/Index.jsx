@@ -13,6 +13,7 @@ class Index extends Component {
 				<div className="logo" onClick={()=>{hashHistory.push('test')}}>
 					<img src={img} />
 				</div>
+				lalala,haha
 			</div>
 		);
 	}

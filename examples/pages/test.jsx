@@ -6,7 +6,7 @@ class Test extends Component {
 	render() {
 		return (
 			<div className="index-page">
-				测试页面
+				测试页面,test
 			</div>
 		);
 	}
