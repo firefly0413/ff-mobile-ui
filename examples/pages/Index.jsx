@@ -1,12 +1,11 @@
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
-
+import Cell from '../../components/Cell'
 import '../styles/pages/indexPage.scss'
 let img = require('../images/logo.jpg');
 
 class Index extends Component {
-	
 	render() {
 		return (
 			<div className="index-page">
@@ -14,7 +13,8 @@ class Index extends Component {
 					<img src={img} />
 				</div>
 				<div className="content">
-					index内容
+					<Cell title="Cell" type="link"/>
+					<Cell title="Test" type="text" value="测试"/>
 				</div>
 			</div>
 		);
