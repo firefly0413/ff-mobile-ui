@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "rm -rf lib && rm -rf dist",
     "dev": "webpack-dev-server --inline --config webpack.config.dev.js",
-    "prod": "webpack-dev-server --inline --config webpack.config.prod.js"
+    "prod": "rm -rf assets && webpack --config webpack.config.prod.js",
+    "build:lib": "babel components --out-dir lib --presets=es2015,react,stage-0",
+    "build": "npm run clean && npm run build:lib"
   },
   "repository": {
     "type": "git",
@@ -34,6 +36,7 @@
     "classnames": "^2.2.5",
     "css-loader": "^0.28.7",
     "cssnano": "^3.10.0",
+    "dragon-mobile-ui": "0.0.48",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.30.1",
