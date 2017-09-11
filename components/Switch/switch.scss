@@ -1,0 +1,38 @@
+@import '../../styles/core/index';
+.switch-ui{
+  width:r(40);
+  height:r(20);
+  background:#ddd;
+  border-radius:r(10);
+  position:relative;
+  transition:0.5s all ease;
+  &:after{
+    content:"";
+    width:r(5);
+    height:r(10);
+    border-right:1px solid #fff;
+    border-bottom:1px solid #fff;
+    position:absolute;
+    left:r(-15);top:50%;
+    transform:translateY(-60%) rotate(45deg);
+    transition:0.5s all ease;
+  }
+  &.active{
+    background:#06f;
+    &:after{
+      left:r(8);
+    }
+  }
+  .switch-ball{
+    position:absolute;
+    width:r(18);
+    height:r(18);
+    border-radius:100%;
+    background:#fff;
+    left:1px;top:1px;
+    transition:0.5s all ease;
+    &.active{
+      left:r(21);
+    }
+  }
+}
