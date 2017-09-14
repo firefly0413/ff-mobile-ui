@@ -9,9 +9,11 @@ class Switch extends Component{
         }
     }
     render(){
+        const {className} = this.props;
         let cls = classnames({
             'switch-ui':true,
-            'active':this.state.active
+            'active':this.state.active,
+            [className]:!!className
         })
         let clsBall = classnames({
             'switch-ball':true,
