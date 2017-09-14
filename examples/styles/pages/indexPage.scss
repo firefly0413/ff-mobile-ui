@@ -1,10 +1,19 @@
+@import '../core/index';
 .index-page{
-	background:#fff;
 	.logo{
 		width:100%;
 		img{
 			width:100%;
 		}
 		border-bottom:1px solid #ddd;
+	}
+	.norm_block{
+		height:r(10);
+	}
+	.mySwitch{
+		position:absolute;
+		right:r(20);
+		top:50%;
+		transform:translateY(r(-10));
 	}
 }
