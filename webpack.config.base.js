@@ -100,6 +100,9 @@ module.exports = {
 	},
 	resolve: {
 		extensions: [' ', '.js', '.jsx', '.scss'],
+		alias:{
+			'components':path.resolve(__dirname,'./components')
+		}
 	},
 	plugins: [
 		new ExtractTextPlugin({

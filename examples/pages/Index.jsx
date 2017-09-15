@@ -1,10 +1,12 @@
 
 import React, { Component } from 'react';
 import { hashHistory } from 'react-router';
-import Cell from '../../components/Cell'
-import Switch from '../../components/Switch'
-import FInput from '../../components/FInput'
+import Cell from 'components/Cell'
+import Switch from 'components/Switch'
+import FInput from 'components/FInput'
+import Checkbox from 'components/Checkbox'
 import '../styles/pages/indexPage.scss'
+import CheckboxGroup from "components/Checkbox/CheckboxGroup";
 let img = require('../images/logo.jpg');
 
 class Index extends Component {
@@ -23,6 +25,14 @@ class Index extends Component {
 				<Cell title="input" >
 					<FInput type="text" placeholder="随便输入点什么"/>
 				</Cell>
+				<div className="norm_block"/>
+				<Checkbox >haha</Checkbox>
+				<div className="norm_block"/>
+				<Checkbox.Group values={['a','b']} onChange={(result)=>{console.log('checkbox结果是==>',result)}}>
+					<Checkbox value="a">haha</Checkbox>
+					<Checkbox value="b">lala</Checkbox>
+					<Checkbox value="c">shahsa</Checkbox>
+				</Checkbox.Group>
 			</div>
 		);
 	}
