@@ -1,0 +1,30 @@
+.tab-nav{
+width:100%;
+overflow: hidden;
+display:flex;
+justify-content: space-around;
+height:35px;
+}
+.tab-nav li{
+float: left;
+height:100%;
+min-width:80px;
+text-align: center;
+line-height:35px;
+border-bottom:1px solid #ddd;
+cursor:pointer;
+}
+.tab-nav li.active{
+color:#f90;
+border-color:#f90;
+}
+.tab-content{
+width:100%;
+line-height:30px;
+}
+.tab-content .tab-panel{
+display: none;
+}
+.tab-content .tab-panel.active{
+display: block;
+}

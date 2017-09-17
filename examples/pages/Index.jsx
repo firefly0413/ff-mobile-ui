@@ -6,7 +6,7 @@ import Switch from 'components/Switch'
 import FInput from 'components/FInput'
 import Checkbox from 'components/Checkbox'
 import '../styles/pages/indexPage.scss'
-import CheckboxGroup from "components/Checkbox/CheckboxGroup";
+import Tab from 'components/Tab'
 let img = require('../images/logo.jpg');
 
 class Index extends Component {
@@ -33,6 +33,12 @@ class Index extends Component {
 					<Checkbox value="b">lala</Checkbox>
 					<Checkbox value="c">shahsa</Checkbox>
 				</Checkbox.Group>
+
+				<Tab activeIndex={0}>
+					<Tab.Panel className='test' title='lemon tree' order='0'>123123123</Tab.Panel>
+					<Tab.Panel title='haha' order='1'>asd23123</Tab.Panel>
+					<Tab.Panel title='yellow river' order='2'>asdasd</Tab.Panel>
+				</Tab>
 			</div>
 		);
 	}
