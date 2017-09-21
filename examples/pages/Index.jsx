@@ -39,6 +39,7 @@ class Index extends Component {
 					<Tab.Panel title='haha' order='1'>asd23123</Tab.Panel>
 					<Tab.Panel title='yellow river' order='2'>asdasd</Tab.Panel>
 				</Tab>
+				<button onClick={()=>{hashHistory.push('questions')}}>问卷</button>
 			</div>
 		);
 	}

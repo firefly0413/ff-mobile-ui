@@ -1,0 +1,39 @@
+@import '../core/index';
+.question{
+    .question_wrap{
+        width:100%;
+        .title{
+            height:r(50);
+            line-height:r(50);
+            text-indent: 1em;
+        }
+        .answerItem{
+            background:#fff;
+            height:r(40);
+            line-height:r(40);
+            text-indent: 2em;
+            border-bottom:1px solid #ddd;
+            &.active{
+                background:#ddd;
+            }
+        }
+    }
+    .nav{
+        width:100%;
+        height:r(30);
+        margin-top:r(30);
+        position:relative;
+        div{
+            height:r(30);
+            line-height:r(30);
+            color:#09f;
+            position:absolute;
+            &.prev{
+                left:0;
+            }
+            &.next{
+                right:0;
+            }
+        }
+    }
+}
