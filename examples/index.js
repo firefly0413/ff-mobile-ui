@@ -23,6 +23,14 @@ const rootRoute = {
 				}, 'test');
 			}
 		},
+		{
+			path: 'questions',
+			getComponent(location, cb) {
+				require.ensure([], (require) => {
+					cb(null, require('./pages/questions'));
+				}, 'questions');
+			}
+		}
 	],
 	indexRoute: {
 		getComponent(location, cb) {
