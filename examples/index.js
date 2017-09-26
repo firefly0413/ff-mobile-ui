@@ -30,6 +30,14 @@ const rootRoute = {
 					cb(null, require('./pages/questions'));
 				}, 'questions');
 			}
+		},
+		{
+			path: 'betterScroll',
+			getComponent(location, cb) {
+				require.ensure([], (require) => {
+					cb(null, require('./pages/betterScroll'));
+				}, 'betterScroll');
+			}
 		}
 	],
 	indexRoute: {
