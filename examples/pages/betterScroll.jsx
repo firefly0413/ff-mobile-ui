@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import BScroll from 'better-scroll'
-
+import classnames from 'classnames'
 import '../styles/pages/betterScroll.scss'
 const data = [
     {title:'oil快结婚快结婚了健康'},
@@ -24,30 +24,45 @@ class BetterScroll extends Component{
     constructor(props){
         super(props);
         this.state = {
-            upload:false
+            upload:false,
+            pullDown:false,
+            pageSize:10
         }
         this.doUpload = this.doUpload.bind(this);
     }
     componentDidMount(){
-        let _this = this;
         this.scroll = new BScroll('.wrapper',{
             scrollY:true,
-            probeType: 1,
-            pullUpLoad:{
-                threshold: -50
-            },
+            probeType: 1
         })
         this.scroll.on('touchEnd',(pos)=>{
             if(pos.y<(this.scroll.maxScrollY-30)){
                 console.log('加载')
-                _this.doUpload();
+                this.doUpload();
+            }
+            if(pos.y>50){
+                console.log('刷新')
+                this.doRefresh();
             }
         })
+    }
+    doRefresh(){
+        this.setState({
+            pullDown:true
+        },this.refreshData)
     }
     doUpload(){
         this.setState({
             upload:true
         },this.addData)
+    }
+    refreshData(){
+        let _this = this;
+        setTimeout(()=>{
+            this.setState({
+                pullDown:false
+            })
+        },1000)
     }
     addData(){
         let _this = this;
@@ -59,18 +74,23 @@ class BetterScroll extends Component{
                 upload:false
             },()=>{
                 _this.scroll.refresh();
+                //this.scroll.scrollBy(10,100,500);
             })
         },1000)
     }
     render(){
-        const {upload} = this.state;
-        console.log(upload);
 
-        const text = this.state.upload?'数据加载中':'查看更多';
+        const text = this.state.upload?'数据加载中...':'查看更多';
+        const pullDown = this.state.pullDown?'正在刷新...':'下拉刷新';
+        const cls = classnames({
+            "pull-down":true,
+            "show":this.state.pullDown
+        })
         return(
             <div className="myScroll">
                 <div className="wrapper">
                     <div>
+                        <div className={cls}>{pullDown}</div>
                         <ul className="scroll-list">
                             {
                                 data.map((item,index)=>{
