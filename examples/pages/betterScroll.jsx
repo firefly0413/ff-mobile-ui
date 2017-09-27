@@ -1,5 +1,6 @@
 import React,{Component} from 'react'
 import BScroll from 'better-scroll'
+
 import '../styles/pages/betterScroll.scss'
 const data = [
     {title:'oil快结婚快结婚了健康'},
@@ -20,27 +21,67 @@ const data = [
 ]
 
 class BetterScroll extends Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            upload:false
+        }
+        this.doUpload = this.doUpload.bind(this);
+    }
     componentDidMount(){
-        let scroll = new BScroll('.wrapper',{
+        let _this = this;
+        this.scroll = new BScroll('.wrapper',{
             scrollY:true,
+            probeType: 1,
             pullUpLoad:{
-                threshold:50
+                threshold: -50
+            },
+        })
+        this.scroll.on('touchEnd',(pos)=>{
+            if(pos.y<(this.scroll.maxScrollY-30)){
+                console.log('加载')
+                _this.doUpload();
             }
         })
     }
+    doUpload(){
+        this.setState({
+            upload:true
+        },this.addData)
+    }
+    addData(){
+        let _this = this;
+        for(let i=0;i<5;i++){
+            data.push({title:'啦啦啦啦，德玛西亚'})
+        }
+        setTimeout(()=>{
+            _this.setState({
+                upload:false
+            },()=>{
+                _this.scroll.refresh();
+            })
+        },1000)
+    }
     render(){
+        const {upload} = this.state;
+        console.log(upload);
+
+        const text = this.state.upload?'数据加载中':'查看更多';
         return(
             <div className="myScroll">
                 <div className="wrapper">
-                    <ul className="scroll-list">
-                        {
-                            data.map((item,index)=>{
-                                return(
-                                    <li key={index}>{item.title}</li>
-                                )
-                            })
-                        }
-                    </ul>
+                    <div>
+                        <ul className="scroll-list">
+                            {
+                                data.map((item,index)=>{
+                                    return(
+                                        <li key={index}>{item.title}</li>
+                                    )
+                                })
+                            }
+                        </ul>
+                        <div className="upload-text">{text}</div>
+                    </div>
                 </div>
             </div>
         )
