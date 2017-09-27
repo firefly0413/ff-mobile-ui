@@ -14,7 +14,6 @@ class Index extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			showModal:false
 		}
 	}
 	render() {
@@ -47,24 +46,8 @@ class Index extends Component {
 					<Tab.Panel title='yellow river' order='2'>asdasd</Tab.Panel>
 				</Tab>
 				<button onClick={()=>{hashHistory.push('questions')}}>问卷</button>
-				<button onClick={()=>{this.showModal()}}>显示模态框</button>
-
-				<Modal visible={this.state.showModal}>
-					<Modal.Header title="测试模态框"></Modal.Header>
-					<Modal.Body>
-						这里是内容区
-					</Modal.Body>
-					<Modal.Footer>
-						<button >底部</button>
-					</Modal.Footer>
-				</Modal>
 			</div>
 		);
-	}
-    showModal(){
-		this.setState({
-			showModal:true
-		})
 	}
 }
 

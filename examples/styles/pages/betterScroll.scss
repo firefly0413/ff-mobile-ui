@@ -4,6 +4,8 @@
         width:100%;
         height:r(300);
         border:r(2) solid red;
+        overflow: hidden;
+        position:relative;
         .scroll-list{
             width:100%;
             li{
@@ -17,7 +19,7 @@
             }
         }
     }
-    .upload-text{
+    .pull-down,.upload-text{
         width:100%;
         height:r(40);
         line-height:r(40);
@@ -25,4 +27,12 @@
         text-align: center;
         display: block;
     }
+    .pull-down{
+        position:absolute;
+        top:r(-40);
+        &.show{
+            position:static;
+        }
+    }
+    
 }
