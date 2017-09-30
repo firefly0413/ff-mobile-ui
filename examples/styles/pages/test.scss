@@ -1,0 +1,23 @@
+@import '../core/index';
+.index-page{
+  background:#fff;
+  .testScroll{
+    border-top:1px solid #ddd;
+    margin-top:r(20);
+    .pullUp-wrapper-ui{
+      height:r(300);
+    }
+    .scroll-list{
+      width:100%;
+      li{
+        width:100%;
+        height:r(50);
+        border-bottom:1px solid #ddd;
+        box-sizing: border-box;
+        text-indent: 1em;
+        line-height: r(50);
+        background: #fff;
+      }
+    }
+  }
+}
