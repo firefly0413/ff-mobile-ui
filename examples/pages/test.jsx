@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PaInput from '../../components/PaInput'
 import PullUp from '../../components/PullUp'
+import Select from '../../components/Select'
 import '../styles/pages/test'
 
 const initData = [
@@ -22,6 +23,23 @@ const initData = [
     {title:'流失的风景哦快乐就好'},
 ]
 
+const listData = [
+    {ping:'beijing',text:'北京'},
+    {ping:'shanghai',text:'上海'},
+    {ping:'guangzhou',text:'广州'},
+    {ping:'shenzhen',text:'深圳'},
+    {ping:'nanjing',text:'南京'},
+    {ping:'hangzhou',text:'杭州'},
+    {ping:'wuhan',text:'武汉'},
+    {ping:'hefei',text:'合肥'},
+    {ping:'xiamen',text:'厦门'},
+    {ping:'chengdu',text:'成都'},
+    {ping:'nanchang',text:'南昌'},
+    {ping:'hulunbeier',text:'呼伦贝尔'},
+    {ping:'wulumuqi',text:'乌鲁木齐'},
+    {ping:'lasa',text:'拉萨'},
+]
+
 class Test extends Component {
 	constructor(props){
 		super(props);
@@ -36,17 +54,19 @@ class Test extends Component {
 				测试页面,test
 				<div style={{height:'40px'}}></div>
 				<PaInput title="input测试" regExp={/^\d+$/} warnMsg="请输入数字" required={false} value="aaa"/>
-				<PullUp className="testScroll" uploadFn={this.doUpload.bind(this)}>
-					<ul className="scroll-list">
-                        {
-                            data.map((item,index)=>{
-                                return(
-									<li key={index}>{item.title}</li>
-                                )
-                            })
-                        }
-					</ul>
-				</PullUp>
+				{/*<PullUp className="testScroll" uploadFn={this.doUpload.bind(this)}>*/}
+					{/*<ul className="scroll-list">*/}
+                        {/*{*/}
+                            {/*data.map((item,index)=>{*/}
+                                {/*return(*/}
+									{/*<li key={index}>{item.title}</li>*/}
+                                {/*)*/}
+                            {/*})*/}
+                        {/*}*/}
+					{/*</ul>*/}
+				{/*</PullUp>*/}
+				<div className="normBlock" />
+				<Select data={listData} search/>
 			</div>
 		);
 	}
