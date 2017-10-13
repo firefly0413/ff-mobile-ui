@@ -1,5 +1,4 @@
 import React ,{Component} from 'react'
-import Header from './Header'
 import Events from '../util/events'
 import '../../styles/index'
 import './app.scss'
@@ -11,7 +10,6 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				<Header/>
 				<div className="app-container">
 					{this.props.children}
 				</div>

@@ -16,11 +16,11 @@ const rootRoute = {
 			}
 		},
 		{
-			path: 'test',
+			path: 'checkbox',
 			getComponent(location, cb) {
 				require.ensure([], (require) => {
-					cb(null, require('./pages/test'));
-				}, 'test');
+					cb(null, require('./pages/checkbox'));
+				}, 'checkbox');
 			}
 		},
 		{

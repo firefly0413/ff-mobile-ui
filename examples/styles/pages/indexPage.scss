@@ -1,14 +1,14 @@
 @import '../core/index';
 .index-page{
-	.logo{
-		width:100%;
-		img{
-			width:100%;
-		}
-		border-bottom:1px solid #ddd;
-	}
 	.main{
-		padding:r(10) r(15);
+		padding:r(15);
+	}
+	.brand{
+		padding:r(30) 0 0 r(20);
+		h2{
+			font-weight:normal;
+			font-size:r(30);
+		}
 	}
 	.norm_block{
 		height:r(10);
