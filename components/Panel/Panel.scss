@@ -1,0 +1,26 @@
+@import '../../styles/index';
+.panel-ui {
+  .panel-header-ui {
+    display: flex;
+    padding: r(25) r(15) r(7) r(15);
+    font-size: r(14);
+    color: #999;
+  }
+
+  .panel-footer-ui {
+    display: flex;
+    padding: r(7) r(15);
+    margin-bottom: r(10);
+    font-size: r(12);
+    color: #999;
+  }
+
+  .panel-body-ui {
+    position: relative;
+    background: #fff;
+  }
+
+  .panel-title-ui {
+    flex: 1;
+  }
+}

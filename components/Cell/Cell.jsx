@@ -1,18 +1,19 @@
-import React,{Component,PropTypes} from 'react'
+import React,{Component} from 'react'
 import classnames from 'classnames'
 
 class Cell extends Component{
     constructor(props){
         super(props);
+        const {className} = this.props;
+        this.cls = classnames({
+            'cell-ui':true,
+            [className]:!!className
+        })
     }
     render(){
-        const {type,title} = this.props;
-        const cls = classnames({
-            'cell-ui':true,
-            'cell-link-ui':type==='link'
-        })
+        const {title} = this.props;
         return(
-            <div className={cls}>
+            <div className={this.cls} onClick={()=>{this.handleClick()}}>
                 <div className="cell-main">
                     <div className="cell-title">{title}</div>
                     <div className="cell-content">
@@ -22,11 +23,15 @@ class Cell extends Component{
             </div>
         )
     }
+    handleClick(){
+        const {onClick} = this.props;
+        onClick();
+    }
 }
 
 Cell.defaultProps = {
-    type:'',
-    title:''
+    title:'',
+    onClick:()=>{}
 };
 
 export default Cell;
