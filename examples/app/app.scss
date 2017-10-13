@@ -17,8 +17,21 @@
 	position:relative;
 	min-width:320px;
 	min-height:100%;
-	margin-top:r(50);
 	overflow: hidden;
+	font-size:r(14);
+	.ff-header{
+		padding:r(15);
+		.header-wrap{
+			width:100%;
+			position:relative;
+		}
+		.github{
+			width:r(30);
+			height:r(30);
+			position:absolute;
+			top:r(-10);right:r(-10);
+		}
+	}
 }
 input,button,select,textarea{
 	outline:none
