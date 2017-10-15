@@ -27,8 +27,8 @@ class Index extends Component {
 						<Panel.Header title="表单组件"/>
 						<Panel.Body>
 							<Cell.Group>
-								<Cell.Link title="复选框 Checkbox" linkUrl='checkbox'/>
-								<Cell.Link title="文本框 Input" linkUrl='input'/>
+								<Cell.Link title="复选框 Checkbox" linkUrl='checkboxPage'/>
+								<Cell.Link title="文本框 Input" linkUrl='inputPage'/>
 							</Cell.Group>
 						</Panel.Body>
 					</Panel>
