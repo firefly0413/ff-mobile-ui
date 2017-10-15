@@ -26,10 +26,34 @@ class CheckboxPage extends PureComponent {
                                     <Checkbox >普通</Checkbox>
                                 </Cell>
                                 <Cell>
-                                    <Checkbox checked={true}>默认选中</Checkbox>
+                                    <Checkbox checked >默认选中</Checkbox>
                                 </Cell>
                                 <Cell>
-                                    <Checkbox >普通</Checkbox>
+                                    <Checkbox disabled >禁用</Checkbox>
+                                </Cell>
+                                <Cell>
+                                    <Checkbox checked disabled>选中且禁用</Checkbox>
+                                </Cell>
+                            </Cell.Group>
+                        </Panel.Body>
+                    </Panel>
+                    <Panel>
+                        <Panel.Header title="组合" />
+                        <Panel.Body>
+                            <Cell.Group>
+                                <Cell title="正常">
+                                    <Checkbox.Group onChange={(result)=>{this.showResult(result)}}>
+                                        <Checkbox value="one">选项一</Checkbox>
+                                        <Checkbox value="two">选项二</Checkbox>
+                                        <Checkbox value="three">选项三</Checkbox>
+                                    </Checkbox.Group>
+                                </Cell>
+                                <Cell title="带禁用">
+                                    <Checkbox.Group onChange={(result)=>{this.showResult(result)}}>
+                                        <Checkbox value="one">选项一</Checkbox>
+                                        <Checkbox value="two">选项二</Checkbox>
+                                        <Checkbox disabled value="three">选项三</Checkbox>
+                                    </Checkbox.Group>
                                 </Cell>
                             </Cell.Group>
                         </Panel.Body>
@@ -37,6 +61,9 @@ class CheckboxPage extends PureComponent {
                 </main>
             </div>
         )
+    }
+    showResult(result){
+        console.log(result);
     }
 }
 

@@ -4,6 +4,21 @@
     margin-right:r(15);
   }
 }
+.disabled{
+  color:#999;
+  .checkbox-ui {
+    &.checked {
+
+      .checkbox-inner-ui {
+        border-color: #ddd;
+        background-color: #ddd;
+      }
+    }
+    .checkbox-inner-ui{
+      border-color:#ddd;
+    }
+  }
+}
 .checkbox-ui{
   display: inline-block;
   position: relative;
