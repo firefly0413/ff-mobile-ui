@@ -5,19 +5,22 @@ class Checkbox extends Component{
     constructor(props){
         super(props);
         this.state = {
-            checked:props.checked||false
+            checked:props.checked,
         }
     }
     render(){
         const {checked} = this.state;
-        const {className,children} = this.props;
+        const {disabled,className,children} = this.props;
+        const labelCls = classnames({
+            'disabled':disabled
+        })
         const cls = classnames({
             'checkbox-ui':true,
             'checked':!!checked,
             [className]:!!className
         })
         return(
-            <label onClick={()=>{this.handleChange()}} >
+            <label className={labelCls} onClick={()=>{this.handleChange()}} >
                 <span className={cls}>
                     <span className="checkbox-inner-ui"/>
                 </span>
@@ -27,7 +30,8 @@ class Checkbox extends Component{
     }
     handleChange(){
         const {checked} = this.state;
-        const {onChange} = this.props;
+        const {onChange,disabled} = this.props;
+        if(disabled) return;
         this.setState({
             checked:!checked
         },()=>{
@@ -38,6 +42,7 @@ class Checkbox extends Component{
 
 Checkbox.defaultProps = {
     checked:false,
+    disabled:false,
     onChange:()=>{}
 }
 

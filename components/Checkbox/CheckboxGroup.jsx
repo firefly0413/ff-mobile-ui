@@ -40,7 +40,8 @@ class CheckboxGroup extends Component{
 }
 
 CheckboxGroup.defaultProps = {
-    values:[]
+    values:[],
+    onChange:()=>{}
 }
 
 export default CheckboxGroup;
