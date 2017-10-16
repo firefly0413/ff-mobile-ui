@@ -61,7 +61,7 @@ class RadioPage extends PureComponent {
                     </Panel>
 
                     <Panel>
-                        <Panel.Header title="块级" />
+                        <Panel.Header title="列表" />
                         <Panel.Body>
                             <Radio.Group type="cell" onChange={(result)=>{this.showResult(result)}}>
                                 <Radio value="one">选项一</Radio>
