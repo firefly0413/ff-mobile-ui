@@ -23,6 +23,14 @@ const rootRoute = {
 				}, 'checkboxPage');
 			}
 		},
+        {
+            path: 'radioPage',
+            getComponent(location, cb) {
+                require.ensure([], (require) => {
+                    cb(null, require('./pages/radioPage'));
+                }, 'radioPage');
+            }
+        },
 		{
 			path: 'questions',
 			getComponent(location, cb) {

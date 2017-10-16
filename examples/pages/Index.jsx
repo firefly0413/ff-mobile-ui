@@ -28,6 +28,7 @@ class Index extends Component {
 						<Panel.Body>
 							<Cell.Group>
 								<Cell.Link title="复选框 Checkbox" linkUrl='checkboxPage'/>
+								<Cell.Link title="单选框 Radio" linkUrl='radioPage'/>
 								<Cell.Link title="文本框 Input" linkUrl='inputPage'/>
 							</Cell.Group>
 						</Panel.Body>

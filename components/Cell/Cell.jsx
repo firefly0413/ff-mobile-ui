@@ -15,7 +15,7 @@ class Cell extends Component{
         return(
             <div className={this.cls} onClick={()=>{this.handleClick()}}>
                 <div className="cell-main">
-                    <div className="cell-title">{title}</div>
+                    {title?<div className="cell-title">{title}</div>:null}
                     <div className="cell-content">
                         {this.props.children}
                     </div>
