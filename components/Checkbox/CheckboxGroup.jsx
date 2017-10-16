@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Cell from '../Cell'
 
 class CheckboxGroup extends Component{
     constructor(props){
@@ -8,9 +9,10 @@ class CheckboxGroup extends Component{
         }
     }
     render(){
-        const {children} = this.props;
+        const {type,children} = this.props;
         const items = React.Children.map(children,(item,index)=>{
             return React.cloneElement(item,{
+                type,
                 key:index,
                 onChange:()=>{this.handleChange(item.props.value)},
                 checked:~this.state.values.indexOf(item.props.value)
@@ -18,14 +20,14 @@ class CheckboxGroup extends Component{
         })
         return(
             <div className="checkbox-group-ui">
-                {items}
+                {type==='cell'?<Cell.Group>{items}</Cell.Group>:items}
             </div>
         )
     }
     handleChange(value){
-        let arr = this.state.values;
+        let _this = this;
+        let arr = Array.prototype.slice.call(_this.state.values,0)
         let index = arr.indexOf(value);
-
         if(index<0){
             arr.push(value);
         }else{
@@ -37,6 +39,10 @@ class CheckboxGroup extends Component{
         })
         this.props.onChange(arr);
     }
+}
+
+CheckboxGroup.prototypes = {
+    values:React.PropTypes.array
 }
 
 CheckboxGroup.defaultProps = {

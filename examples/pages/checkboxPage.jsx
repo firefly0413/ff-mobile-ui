@@ -50,12 +50,23 @@ class CheckboxPage extends PureComponent {
                                 </Cell>
                                 <Cell title="带禁用">
                                     <Checkbox.Group onChange={(result)=>{this.showResult(result)}}>
-                                        <Checkbox value="one">选项一</Checkbox>
-                                        <Checkbox value="two">选项二</Checkbox>
-                                        <Checkbox disabled value="three">选项三</Checkbox>
+                                        <Checkbox value="1">选项一</Checkbox>
+                                        <Checkbox value="2">选项二</Checkbox>
+                                        <Checkbox disabled value="3">选项三</Checkbox>
                                     </Checkbox.Group>
                                 </Cell>
                             </Cell.Group>
+                        </Panel.Body>
+                    </Panel>
+
+                    <Panel>
+                        <Panel.Header title="列表" />
+                        <Panel.Body>
+                            <Checkbox.Group type="cell" onChange={(result)=>{this.showResult(result)}}>
+                                <Checkbox value="one">选项一</Checkbox>
+                                <Checkbox value="two">选项二</Checkbox>
+                                <Checkbox value="three">选项三</Checkbox>
+                            </Checkbox.Group>
                         </Panel.Body>
                     </Panel>
                 </main>

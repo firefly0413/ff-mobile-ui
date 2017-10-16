@@ -1,4 +1,5 @@
 import React,{Component} from 'react'
+import Cell from '../Cell'
 import classnames from 'classnames'
 
 class Checkbox extends Component{
@@ -8,9 +9,27 @@ class Checkbox extends Component{
             checked:props.checked,
         }
     }
+    componentWillReceiveProps(nextProps){
+        if(nextProps && (nextProps.checked!==this.state.checked)){
+            this.setState({
+                checked:nextProps.checked
+            })
+        }
+    }
     render(){
+        const {type} = this.props;
+        if(type === 'cell'){
+            return (
+                <Cell onClick={()=>{this.handleChange()}}>
+                    {this.renderCheckbox()}
+                </Cell>
+            )
+        }
+        return this.renderCheckbox()
+    }
+    renderCheckbox(){
         const {checked} = this.state;
-        const {disabled,className,children} = this.props;
+        const {disabled,type,className,children} = this.props;
         const labelCls = classnames({
             'disabled':disabled
         })
@@ -20,7 +39,7 @@ class Checkbox extends Component{
             [className]:!!className
         })
         return(
-            <label className={labelCls} onClick={()=>{this.handleChange()}} >
+            <label className={labelCls} onClick={type==='cell'?null:()=>{this.handleChange()}} >
                 <span className={cls}>
                     <span className="checkbox-inner-ui"/>
                 </span>
@@ -41,6 +60,7 @@ class Checkbox extends Component{
 }
 
 Checkbox.defaultProps = {
+    type:'',
     checked:false,
     disabled:false,
     onChange:()=>{}
