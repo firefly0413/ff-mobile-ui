@@ -32,11 +32,11 @@ const rootRoute = {
             }
         },
 		{
-			path: 'questions',
+			path: 'inputPage',
 			getComponent(location, cb) {
 				require.ensure([], (require) => {
-					cb(null, require('./pages/questions'));
-				}, 'questions');
+					cb(null, require('./pages/inputPage'));
+				}, 'inputPage');
 			}
 		},
 		{
