@@ -1,0 +1,26 @@
+.mask-ui{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;left:0;
+  animation: fade-enter .3s ease-out;
+  z-index:1000;
+  &.dark{
+    background:rgba(0,0,0,0.7);
+  }
+  &.light{
+    background:rgba(0,0,0,0.3);
+  }
+  &.transparent{
+    background:transparent;
+  }
+}
+
+@keyframes fade-enter {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
