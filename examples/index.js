@@ -32,11 +32,11 @@ const rootRoute = {
             }
         },
 		{
-			path: 'questions',
+			path: 'inputPage',
 			getComponent(location, cb) {
 				require.ensure([], (require) => {
-					cb(null, require('./pages/questions'));
-				}, 'questions');
+					cb(null, require('./pages/inputPage'));
+				}, 'inputPage');
 			}
 		},
 		{
@@ -46,7 +46,15 @@ const rootRoute = {
 					cb(null, require('./pages/betterScroll'));
 				}, 'betterScroll');
 			}
-		}
+		},
+    {
+      path: 'bussessTest',
+      getComponent(location, cb) {
+        require.ensure([], (require) => {
+          cb(null, require('./pages/bussessTest'));
+        }, 'bussessTest');
+      }
+    }
 	],
 	indexRoute: {
 		getComponent(location, cb) {

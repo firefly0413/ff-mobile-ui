@@ -39,12 +39,12 @@ class Checkbox extends Component{
             [className]:!!className
         })
         return(
-            <label className={labelCls} onClick={type==='cell'?null:()=>{this.handleChange()}} >
+            <div className={labelCls} onClick={type==='cell'?null:()=>{this.handleChange()}} >
                 <span className={cls}>
                     <span className="checkbox-inner-ui"/>
                 </span>
                 {children}
-            </label>
+            </div>
         )
     }
     handleChange(){

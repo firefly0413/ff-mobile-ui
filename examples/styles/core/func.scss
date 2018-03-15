@@ -11,3 +11,13 @@ $browser-default-font-size-px: 14px !default;
     @return 0;
   }
 }
+
+@function toRem($px, $isFixed:true) {
+  @if $px != 0 {
+    @return if($isFixed, $px / $ratio + 0.01, $px / $ratio) / $browser-default-font-size * 1rem;
+  }
+  @else
+  {
+    @return 0;
+  }
+}

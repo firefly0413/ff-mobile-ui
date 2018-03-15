@@ -7,6 +7,7 @@ class App extends Component{
 	componentDidMount(){
         Events.on(window,'resize',window.__setFontSize__);
 	}
+	
 	render(){
 		return(
 			<div>

@@ -18,7 +18,7 @@ class PaInput extends Component{
 
     }
     render(){
-        const {disable,title,name} = this.props;
+        const {title,name} = this.props;
         const {value,validate} = this.state;
         const cls = classnames({
             'PaInput-wrap':true,
@@ -59,6 +59,7 @@ class PaInput extends Component{
     doFocus(){
         this.refs.myInput.focus();
     }
+
     handleFocus(){
         this.setState({
             focus:true,
@@ -69,7 +70,6 @@ class PaInput extends Component{
     doBlur(){
         const {value} = this.state;
         const {title,onBlur,regExp,required,warnMsg} = this.props;
-
         if(required && !value){
             this.setState({
                 validate:{status:false,warnMsg:`请输入${title}`}
@@ -116,7 +116,8 @@ PaInput.defaultProps = {
     value:'',
     title:'',
     name:'',
-    required:false
+    required:false,
+    warnMsg:'您输入的格式不对，请重新输入'
 }
 
 export default PaInput;
